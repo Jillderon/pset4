@@ -10,6 +10,8 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
+    private let database = DatabaseHelper()
+    
     @IBOutlet weak var toDoLabel: UILabel!
     @IBOutlet weak var check: UISwitch!
     

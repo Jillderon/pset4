@@ -14,6 +14,7 @@ class DatabaseHelper {
     private let id = Expression<Int64>("id")
     private let todo = Expression<String?>("todo")
     
+    
     // make a SQL database
     private var database: Connection?
     

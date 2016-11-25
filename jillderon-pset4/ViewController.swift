@@ -19,6 +19,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        restorationIdentifier = "ViewController"
+//        restorationClass = ViewController.self
+        do {
+            try todos = database!.read()
+            self.TableView.reloadData()
+        } catch {
+            print(error)
+        }
         if database == nil {
             print("Error")
         }
@@ -80,6 +88,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.TableView.reloadData()
         }
     }
+    
+//    override func encodeRestorableState(with coder: NSCoder) {
+//        super.encodeRestorableState(with: coder)
+//    }
+//    
+//    override func decodeRestorableState(with coder: NSCoder) {
+//        super.decodeRestorableState(with: coder)
+//    }
 
 }
+
+
+
+//extension ViewController: UIViewControllerRestoration {
+//    @available(iOS 2.0, *)
+//    public static func viewController(withRestorationIdentifierPath identifierComponents: [Any], coder: NSCoder) -> UIViewController? {
+//        let vc = ViewController()
+//        return vc
+//    }
+//
+//    static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject],
+//                                                            coder: NSCoder) -> UIViewController? {
+//        let vc = ViewController()
+//        return vc
+//    }
+//}
+
+
 
