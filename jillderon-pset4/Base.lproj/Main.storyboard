@@ -35,8 +35,42 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S74-dS-L9k">
                                 <rect key="frame" x="0.0" y="65" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="9Tm-7x-fah" customClass="CustomCell" customModule="jillderon_pset4" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Tm-7x-fah" id="yUK-gZ-LP2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6Og-Tr-Mx8">
+                                                    <rect key="frame" x="8" y="7" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBi-8q-frK">
+                                                    <rect key="frame" x="65" y="15" width="82.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FBi-8q-frK" firstAttribute="top" secondItem="yUK-gZ-LP2" secondAttribute="topMargin" constant="7" id="17V-hW-atc"/>
+                                                <constraint firstItem="FBi-8q-frK" firstAttribute="leading" secondItem="6Og-Tr-Mx8" secondAttribute="trailing" constant="8" id="1Nw-Nr-Jka"/>
+                                                <constraint firstItem="6Og-Tr-Mx8" firstAttribute="top" secondItem="yUK-gZ-LP2" secondAttribute="top" constant="7" id="Xke-oT-irJ"/>
+                                                <constraint firstItem="6Og-Tr-Mx8" firstAttribute="leading" secondItem="yUK-gZ-LP2" secondAttribute="leading" constant="8" id="ueF-0z-h4I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="toDoLabel" destination="FBi-8q-frK" id="eFY-kf-fZz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Lp6-WS-r5i"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4MR-EH-DuN"/>
+                                </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5jB-dF-dco">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a new to do" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5jB-dF-dco">
                                 <rect key="frame" x="16" y="629" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -45,6 +79,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvx-tL-SLf">
                                 <rect key="frame" x="310" y="629" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addNewToDo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hw9-bh-ep5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,6 +99,10 @@
                             <constraint firstItem="S74-dS-L9k" firstAttribute="top" secondItem="BM9-X3-RDx" secondAttribute="bottom" constant="8" id="wMg-jj-4T5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TableView" destination="S74-dS-L9k" id="rzD-gn-dc1"/>
+                        <outlet property="textfieldNewToDo" destination="5jB-dF-dco" id="etx-Lw-BDg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
